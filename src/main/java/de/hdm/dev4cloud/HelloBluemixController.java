@@ -14,6 +14,6 @@ public class HelloBluemixController {
 
     @RequestMapping("/")
     public String sayHello() {
-        return "Welcome to the lecture 'Software Development for Cloud Computing'.";
+        return "Dominik [TEST]'.";
     }
 }
