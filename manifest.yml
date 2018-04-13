@@ -1,0 +1,5 @@
+---
+applications:
+  - name: testdev4cloud
+    buildpack: java_buildpack
+    path: build/libs/hello-dev4cloud-0.1.0.jar
