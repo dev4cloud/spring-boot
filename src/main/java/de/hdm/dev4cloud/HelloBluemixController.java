@@ -18,7 +18,7 @@ public class HelloBluemixController {
 
     @RequestMapping("/")
     public String sayHello() {
-        return "Welcome to the lecture 'Systems Engineering & Management'.";
+        return "Welcome to the lecture 'Systems Engineering & Management' V2.";
     }
     
     @RequestMapping("/watson")
