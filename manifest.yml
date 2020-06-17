@@ -3,3 +3,5 @@ applications:
   - name: hello-bluemix234234
     buildpack: java_buildpack
     path: build/libs/spring-boot-0.1.0.jar
+    env:
+      JAVA_OPTS: '-Xmx256M'
