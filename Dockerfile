@@ -1,4 +1,4 @@
-FROM oracle/openjdk
+FROM openjdk:8-slim
 
 ADD . /app
 
