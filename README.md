@@ -30,7 +30,7 @@ kubectl apply -f Service.yml
 To get the public IP of the node call
 
 ```
-ibmcloud cs workers <clustername>
+ibmcloud cs workers --cluster <clustername>
 ```
 
 To get the node port mapping use 
