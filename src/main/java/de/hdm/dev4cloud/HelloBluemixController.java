@@ -20,6 +20,46 @@ public class HelloBluemixController {
     public String sayHello() {
         return "Welcome to the lecture 'Systems Engineering & Management' V2.";
     }
+
+    @RequestMapping("/cpu")
+    public String encrypt() throws Exception{
+        javax.crypto.Cipher cipher = javax.crypto.Cipher.getInstance("AES/ECB/PKCS5Padding");
+        javax.crypto.SecretKey secretKey = new javax.crypto.spec.SecretKeySpec("mysecretkey23456".getBytes(), "AES");
+        cipher.init(javax.crypto.Cipher.ENCRYPT_MODE, secretKey);
+        String s = "";
+        for(int i=0; i< 1000; i++){
+            s += new String(cipher.doFinal(("my message " + java.lang.Math.random() + " that get encrypted").getBytes()), java.nio.charset.StandardCharsets.UTF_8);
+        }
+        return s;
+    }
+    
+    @RequestMapping("/mem")
+    public String mem() {
+        String a = "aaaaaaaaaaaaaaadslfkjalsdddddddddddddddjslkdfjalskdjflkajslfdkjsadlkfjalfjdalsjflajflajfljs;lfdja;sfdjakl;dsfjafdk;adsfj;afj";
+        for(int i=0; i< 20; i++){
+            a += a;
+        }
+        return "Build string with " + a.length() + " elements";
+    }
+ 
+    @RequestMapping("/io")
+    public String io() throws Exception {
+        String a = "aaaaaaaaaaaaaaadslfkjalsdddddddddddddddjslkdfjalskdjflkajslfdkjsadlkfjalfjdalsjflajflajfljs;lfdja;sfdjakl;dsfjafdk;adsfj;afj";
+        for(int i=0; i< 10; i++){
+            a += a;
+            java.nio.file.Files.write(java.nio.file.Paths.get("foo.txt"), a.getBytes());
+        }
+        
+        for(int i=0; i< 10; i++){
+            java.nio.file.Files.lines(new java.io.File("foo.txt").toPath())
+            .map(s -> s.trim())
+            .filter(s -> !s.isEmpty())
+            .forEach(System.out::println);
+        }
+        return "Wrote file " + 10 + " times";
+    }
+
+
     
     @RequestMapping("/watson")
     public String howAmI() {
